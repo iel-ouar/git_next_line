@@ -6,14 +6,14 @@
 /*   By: iel-ouar <iel-ouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:17:55 by iel-ouar          #+#    #+#             */
-/*   Updated: 2024/12/11 15:58:22 by iel-ouar         ###   ########.fr       */
+/*   Updated: 2024/12/11 18:43:04 by iel-ouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 13
 # endif
 
 # include <stdlib.h>
