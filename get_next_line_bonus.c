@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-ouar <iel-ouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 14:17:52 by iel-ouar          #+#    #+#             */
-/*   Updated: 2024/12/11 15:58:10 by iel-ouar         ###   ########.fr       */
+/*   Created: 2024/12/10 15:35:36 by iel-ouar          #+#    #+#             */
+/*   Updated: 2024/12/11 15:56:17 by iel-ouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*ft_free(char **s)
 {
@@ -70,20 +70,20 @@ static char	*ft_set_line(char *line)
 
 char	*get_next_line(int fd)
 {
-	static char	*remainder;
+	static char	*remainder[256];
 	char		*buf;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (ft_free(&remainder));
+		return (ft_free(&remainder[fd]));
 	buf = malloc((BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
-	line = ft_read_line(fd, remainder, buf);
+	line = ft_read_line(fd, remainder[fd], buf);
 	free(buf);
 	buf = NULL;
 	if (!line)
-		return (ft_free(&remainder));
-	remainder = ft_set_line(line);
+		return (ft_free(&remainder[fd]));
+	remainder[fd] = ft_set_line(line);
 	return (line);
 }
