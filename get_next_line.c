@@ -6,7 +6,7 @@
 /*   By: iel-ouar <iel-ouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:17:52 by iel-ouar          #+#    #+#             */
-/*   Updated: 2024/12/11 15:58:10 by iel-ouar         ###   ########.fr       */
+/*   Updated: 2024/12/11 17:22:24 by iel-ouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 
 static char	*ft_free(char **s)
 {
-	if (s && !*s)
-	{
-		free(*s);
-		*s = NULL;
-	}
+	free(*s);
+	*s = NULL;
 	return (NULL);
 }
 
