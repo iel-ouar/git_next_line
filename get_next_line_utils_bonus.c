@@ -6,13 +6,13 @@
 /*   By: iel-ouar <iel-ouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:36:46 by iel-ouar          #+#    #+#             */
-/*   Updated: 2024/12/11 19:20:56 by iel-ouar         ###   ########.fr       */
+/*   Updated: 2024/12/14 15:32:31 by iel-ouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(char *s)
 {
 	char	*tmp;
 	size_t	i;
@@ -42,18 +42,14 @@ char	*ft_strdup(const char *s)
 	return (tmp);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*tmp;
 	size_t	j;
 	size_t	i;
 
-	if (!s1 && !s2)
+	if (!s1 || !s2)
 		return (NULL);
-	if (!s1)
-		return (ft_strdup(s2));
-	if (!s2)
-		return (ft_strdup(s1));
 	tmp = (char *)malloc ((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!tmp)
 		return (NULL);
@@ -70,7 +66,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (tmp);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
 	char	*tmp;
 	size_t	i;
@@ -79,8 +75,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	l = ft_strlen(s);
-	if (start >= l)
-		return (ft_strdup(""));
 	if (len > l - start)
 		len = l - start;
 	tmp = (char *)malloc (len + 1);
@@ -96,7 +90,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (tmp);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
 	int	i;
 
